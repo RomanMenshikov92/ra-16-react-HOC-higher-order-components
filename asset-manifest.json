@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ra-16-react-HOC-higher-order-components/static/css/main.cb9c6dcf.css",
+    "main.js": "/ra-16-react-HOC-higher-order-components/static/js/main.a3858206.js",
+    "static/js/787.39777a39.chunk.js": "/ra-16-react-HOC-higher-order-components/static/js/787.39777a39.chunk.js",
+    "index.html": "/ra-16-react-HOC-higher-order-components/index.html",
+    "main.cb9c6dcf.css.map": "/ra-16-react-HOC-higher-order-components/static/css/main.cb9c6dcf.css.map",
+    "main.a3858206.js.map": "/ra-16-react-HOC-higher-order-components/static/js/main.a3858206.js.map",
+    "787.39777a39.chunk.js.map": "/ra-16-react-HOC-higher-order-components/static/js/787.39777a39.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb9c6dcf.css",
+    "static/js/main.a3858206.js"
+  ]
+}
