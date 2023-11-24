@@ -1,0 +1,44 @@
+body {
+  font-family: "Mina", sans-serif;
+}
+
+/* #root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+.time-video__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+.time-video__item {
+  width: 460px;
+  margin: 10px;
+  padding: 10px 10px 1px;
+  background: #000000;
+  box-sizing: content-box;
+}
+
+.time-video__item iframe {
+  display: block;
+  margin: 0 auto;
+  width: 460px;
+  height: 240px;
+  border: none;
+}
+
+.time-video__item .video-time__date {
+  margin: 6px 0 0 0;
+  text-align: right;
+  font-size: 80%;
+  color: #cccccc;
+}

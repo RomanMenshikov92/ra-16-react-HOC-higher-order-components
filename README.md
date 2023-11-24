@@ -1,46 +1,134 @@
-# Getting Started with Create React App
+# HOC — Higher Order Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/d01vp6w9t411beyo?svg=true)](https://ci.appveyor.com/project/RomanMenshikov92/ra-16-react-HOC-higher-order-components) -->
 
-## Available Scripts
+<!-- [![Pages build status](https://github.com/RomanMenshikov92/ra-16-react-HOC-higher-order-components/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/ra-16-react-HOC-higher-order-components/actions/workflows/pages/pages-build-deployment) -->
 
-In the project directory, you can run:
+---
 
-### `npm start`
+<!-- ## [GutHub Pages](https://romanmenshikov92.github.io/ra-16-react-HOC-higher-order-components/) -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Необходимо выполнить и предоставить на проверку следующие задачи:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+<summary>1. Форматирование даты публикации</summary>
 
-### `npm test`
+# Форматирование даты публикации
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Есть страница, содержащая список видеозаписей.
+У каждого блока есть дата публикации.
 
-### `npm run build`
+![Relative Time](./res/time.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+В данный момент выводится просто текущее значение. Пример: `2017-09-01 14:15:10`.
+Решено изменять представление даты следующим образом в зависимости от его значения:
+`12 минут назад`, если прошло меньше часа, `5 часов назад`, если прошло больше часа, `X дней назад`, если больше суток.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Реализация
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Используя HOC, обернуть `DateTime` в компонент `DateTimePretty` так, чтобы он преобразовывал дату в нужный вид.
 
-### `npm run eject`
+Воспользуйтесь готовым файлом `App.js` и стилями `css/index.css` из каталога в качестве отправной точки. Замените ими те, что создаются в create-react-app.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Для работы с датой и временем можете воспользоваться библиотекой Moment.js.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<details>
+<summary>2. Популярное и новое</summary>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Подсвечивание блоков
 
-## Learn More
+На нашем сайте есть блоки со статьями и с видеозаписями.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Highlight](./res/highlight.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Мы решили улучшить отображение наших блоков таким образом, чтобы популярные статьи и видео, у которых 1000+ прочтений или просмотров,
+оборачивались в компонент `Popular`, а с количеством до 100 — в компонент `New`. Эти компоненты будут менять внешний облик блоков, привлекая внимание посетителей.
+
+## Реализация
+
+Используя HOC, обернуть `Video` и `Article` таким образом, чтобы при отображении в компоненте `List` они помещались внутрь требуемого компонента `Popular` или `New`.
+
+Воспользуйтесь готовым файлом `App.js` и стилями `css/index.css` из каталога в качестве отправной точки. Замените ими те, что создаются в create-react-app.
+
+</details>
+
+<details>
+<summary>3. Агрегация данных (необязательная задача)</summary>
+
+# Агрегация данных для таблиц
+
+Есть набор из трёх компонентов, которые выводят табличные данные:
+
+- с группировкой по месяцам за текущий год,
+- с группировкой по годам,
+- с сортировкой по убыванию.
+
+![Aggregation](./res/aggregation.png)
+
+К сожалению, эти компоненты работают только с подготовленными данными, а API сервера статистики возвращает нам сырые данные — неотсортированные и несгруппированные.
+
+Данные запрашиваются один раз (https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hoc/aggregation/data/data.json) — после загрузки страницы.
+
+```js
+{
+  "list": [
+    {"date": "2018-01-13", "amount": 10},
+    {"date": "2018-02-13", "amount": 9},
+    {"date": "2018-01-09", "amount": 5},
+    {"date": "2017-12-14", "amount": 14},
+    {"date": "2018-03-01", "amount": 13},
+    //...
+  ]
+}
+```
+
+## Реализация
+
+Обернуть компоненты таблиц в HOC, который бы производил над данными операции, приводящие их к нужному виду.
+Также данные, которые группируются по дате, должны быть отсортированы по ней.
+
+Компонент `MonthTable` ожидает данные в свойство `list` в следующем формате:
+
+```js
+[{month: "Jan", amount: 100}, ...]
+```
+
+Компонент `YearTable` ожидает данные в свойство `list` в следующем формате:
+
+```js
+[{year: 2018, amount: 100}, ...]
+```
+
+Компонент `SortTable` ожидает данные в свойство `list` в следующем формате:
+
+```js
+[{date: "2017-12-14", amount: 14}, ...]
+```
+
+Воспользуйтесь готовым файлом `App.js` и стилями `css/index.css` из каталога в качестве отправной точки. Замените ими те, что создаются в create-react-app.
+
+</details>
+</br>
+
+---
+
+Любые вопросы по решению задач задавайте в группе в Discord.
+
+Все три задачи лучше сдавать в разных репозиториях, то есть через create-react-app реализовать три проекта, чтобы не было конфликта стилей. Но если вы позаботитесь о том, что конфликта не будет, то можете сдавать и в одном проекте.
+
+Обратите внимание: в файлах App.js расположено несколько компонентов не потому, что так нужно делать, а чтобы вам было удобнее копировать. Будет хорошо, если в своём решении вы разнесёте их по разным файлам.
+
+#### Альтернативный способ создания приложения React с использованием тулинга Vite
+
+Приложение также можно создать используя инструмент Vite.
+Документация по созданию приложения [React](https://vitejs.dev/guide/).
+
+1. Откройте терминал и пропишите следующую команду: `yarn create vite my-app --template react`,
+   либо `yarn create vite my-app --template react-ts`, если
+   нужен шаблон с TypeScript. Эта команда создаст настроенный
+   шаблонный проект.
+2. Откройте созданный проект в своей IDE.
+3. Установите зависимости.
+4. Готово. Чтобы запустить приложение, введите команду: `yarn dev`(либо `npm run dev`).
