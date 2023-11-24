@@ -1,12 +1,12 @@
 # HOC — Higher Order Components
 
-<!-- [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/d01vp6w9t411beyo?svg=true)](https://ci.appveyor.com/project/RomanMenshikov92/ra-16-react-HOC-higher-order-components) -->
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/c0a1h710g7iliive?svg=true)](https://ci.appveyor.com/project/RomanMenshikov92/ra-16-react-hoc-higher-order-components)
 
-<!-- [![Pages build status](https://github.com/RomanMenshikov92/ra-16-react-HOC-higher-order-components/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/ra-16-react-HOC-higher-order-components/actions/workflows/pages/pages-build-deployment) -->
+[![Pages build status](https://github.com/RomanMenshikov92/ra-16-react-HOC-higher-order-components/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RomanMenshikov92/ra-16-react-HOC-higher-order-components/actions/workflows/pages/pages-build-deployment)
 
 ---
 
-<!-- ## [GutHub Pages](https://romanmenshikov92.github.io/ra-16-react-HOC-higher-order-components/) -->
+## [GutHub Pages](https://romanmenshikov92.github.io/ra-16-react-HOC-higher-order-components/)
 
 Необходимо выполнить и предоставить на проверку следующие задачи:
 
@@ -110,7 +110,6 @@
 Воспользуйтесь готовым файлом `App.js` и стилями `css/index.css` из каталога в качестве отправной точки. Замените ими те, что создаются в create-react-app.
 
 </details>
-</br>
 
 ---
 
